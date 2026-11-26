@@ -1,0 +1,128 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+  --font-sans: "Outfit", "PingFang TC", "Noto Sans CJK TC", "Noto Sans TC", "Microsoft JhengHei",
+    "WenQuanYi Micro Hei", ui-sans-serif, system-ui, sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-destructive: var(--destructive);
+  --color-good: var(--good);
+}
+
+:root {
+  --background: #f3f0e8;
+  --foreground: #1c1915;
+  --card: #fffdf8;
+  --card-foreground: #1c1915;
+  --primary: #c2412d;
+  --primary-foreground: #fff8f5;
+  --secondary: #ebe6dc;
+  --secondary-foreground: #1c1915;
+  --muted: #ebe6dc;
+  --muted-foreground: #6f6a62;
+  --accent: #f6e1da;
+  --accent-foreground: #8a2a1c;
+  --border: #e3ddd2;
+  --input: #e3ddd2;
+  --ring: #c2412d;
+  --destructive: #9f1239;
+  --good: #2f7d4a;
+  color-scheme: light;
+}
+
+.dark {
+  --background: #100f0d;
+  --foreground: #f4f0e8;
+  --card: #1c1a17;
+  --card-foreground: #f4f0e8;
+  --primary: #ff5a3c;
+  --primary-foreground: #1a0906;
+  --secondary: #2a2622;
+  --secondary-foreground: #f4f0e8;
+  --muted: #2a2622;
+  --muted-foreground: #a8a194;
+  --accent: #3a2420;
+  --accent-foreground: #ffd2c8;
+  --border: #34302b;
+  --input: #34302b;
+  --ring: #ff5a3c;
+  --destructive: #fb7185;
+  --good: #86efac;
+  color-scheme: dark;
+}
+
+html {
+  touch-action: manipulation;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overscroll-behavior-y: none;
+}
+
+button,
+a,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--primary) 28%, transparent);
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes sheet-rise {
+  from {
+    transform: translateY(16px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.sheet-rise {
+  animation: sheet-rise 180ms ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sheet-rise {
+    animation: none;
+  }
+}
