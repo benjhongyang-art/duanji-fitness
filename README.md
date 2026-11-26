@@ -45,7 +45,7 @@ IndexedDB 資料庫名稱是 `duanji`。清除網站資料或換瀏覽器之前�
 
 - Netlify：已附 `public/_redirects`
 - Vercel：已附 `vercel.json`
-- GitHub Pages：建置時會複製 `dist/404.html`。若網站不在網域根目錄，把 `vite.config.ts` 的 `base` 改成倉庫路徑後重新建置。
+- GitHub Pages：推上 `main` 後，`.github/workflows/pages.yml` 會以 `VITE_BASE=/duanji-fitness/` 建置並部署。網站位址是 [https://benjhongyang-art.github.io/duanji-fitness/](https://benjhongyang-art.github.io/duanji-fitness/)。倉庫的 Pages 來源要設成 GitHub Actions。本機開發不要設 `VITE_BASE`，路徑維持 `/`。
 
 ---
 
@@ -96,4 +96,4 @@ The app is a single-page client, so unknown paths must fall back to `index.html`
 
 - Netlify: `public/_redirects` is included.
 - Vercel: `vercel.json` is included.
-- GitHub Pages: the build copies `dist/404.html`. If the site is not served from the domain root, set `base` in `vite.config.ts` and rebuild.
+- GitHub Pages: pushing `main` runs `.github/workflows/pages.yml`, which builds with `VITE_BASE=/duanji-fitness/` and deploys to [https://benjhongyang-art.github.io/duanji-fitness/](https://benjhongyang-art.github.io/duanji-fitness/). In the repository settings, set Pages to deploy from GitHub Actions. Leave `VITE_BASE` unset for local dev so the app stays at `/`.
