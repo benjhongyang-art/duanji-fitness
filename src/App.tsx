@@ -14,7 +14,7 @@ const ProgressPage = lazy(() => import("@/pages/ProgressPage").then((module) => 
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL.replace(/\/$/, "")}>
       <FitnessProvider>
         <Routes>
           <Route element={<Shell />}>
